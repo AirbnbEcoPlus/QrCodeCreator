@@ -8,6 +8,8 @@ QrCodeCreator vous permet de créez des QrCode sans difficulté il vous suffit j
 
 1. qrcode
 2. pandas
+3. pillow
+4. xlrd
 
 ### Features
 

@@ -1,6 +1,7 @@
 import qrcode
 import sys
 import pandas as pd
+import json
 
 FILL_COLOR = 'black'
 BACKGROUND_COLOR = 'white'
@@ -45,7 +46,7 @@ if __name__ == '__main__':
         print("Bienvenue dans le créateur de QR code")
         mode = input("Voulez-vous créer un seul QR code ou Plusieurs QR code ? (1/2) ")
         if mode == "1":
-            base = input("Voulez-vous utiliser les paramètres par défaut ou vous les modifiers ? (1/2) ")
+            base = input("Voulez-vous utiliser les paramètres par défaut ou choisir chaque paramètres ? (1/2) ")
             if base == "1":
                 text = input("Veuillez entrer le texte à convertir en QR code : ")
                 create_qr(text, "result")
@@ -68,5 +69,8 @@ if __name__ == '__main__':
                 generateTable_qr(file, type.lower(), columnName, columnText, sheetName)
 
     else:
-        file = sys.argv[1:]
+        file = sys.argv[1]
+        data = open(file)
+        config = json.load(data)
         print("Génération des QR codes d'après la configuration")
+        print(config)
