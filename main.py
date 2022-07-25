@@ -62,7 +62,7 @@ if __name__ == '__main__':
             type = input("Quel est le type de fichier contenant les données ? (XLSX/JSON/CSV) ")
             if type.lower() == "xlsx" or type.lower() == "csv":
                 file = input("Veuillez entrer le chemin du fichier contenant les données : ")
-                sheetName = input("Veuillez entrer le nom de la feuille Excel : ")
+                sheetName = input("Veuillez entrer le nom de la feuille CSV : ")
                 columnName = input("Veuillez entrer le nom de la colonne contenant les noms : ")
                 columnText = input(
                     "Veuillez entrer le nom de la colonne contenant les textes à convertir en QR code : ")
@@ -73,4 +73,15 @@ if __name__ == '__main__':
         data = open(file)
         config = json.load(data)
         print("Génération des QR codes d'après la configuration")
-        print(config)
+        VERSION = str(config.get("version"))
+        BOX_SIZE = str(config.get("box-size"))
+        BORDER = str(config.get("border"))
+        FILL_COLOR = config.get("fill-color")
+        BACKGROUND_COLOR = config.get("background-color")
+        if(config.get("mode") == "direct"):
+            create_qr(config.get("text"), "result")
+        if(config.get("mode") == "multiple"):
+            if(config.get("storage") == "xlsx" or config.get("storage") == "csv"):
+                generateTable_qr(config.get("file"), config.get("storage"), config.get("tableSetting")["Name"], config.get("tableSetting")["Text"], config.get("tableSetting")["Sheet"])
+            if(config.get("storage" == "json")):
+                print("Implementation en cours")

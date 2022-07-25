@@ -1,0 +1,18 @@
+{
+  "version": "1",
+  "box-size": "10",
+  "border": "4",
+  "fill-color": "black",
+  "background-color": "white",
+  "error-correction": "L",
+  "mode": "multiple",
+  "text": null,
+  "storage": "xlsx",
+  "file": "/mnt/c/Users/adf7b/Downloads/qrcode.xlsx",
+  "tableSetting": {
+    "Sheet": "Sheet1",
+    "Name": "Nom",
+    "Text": "Lien"
+  }
+
+}

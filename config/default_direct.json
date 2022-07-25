@@ -1,0 +1,10 @@
+{
+  "version": "1",
+  "box-size": "10",
+  "border": "4",
+  "fill-color": "black",
+  "background-color": "white",
+  "error-correction": "L",
+  "mode": "direct",
+  "text": "Hello World"
+}
