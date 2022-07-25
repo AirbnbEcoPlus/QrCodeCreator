@@ -17,5 +17,5 @@ QrCodeCreator vous permet de créez des QrCode sans difficulté il vous suffit j
 ### A Venir
 
 - GUI
-- Ajout de nouveau format (png, ect)
+- Ajout de nouveau format (png, wifi, evenement, ect)
 - Fichier de configuration permettant de créer des QrCode a la chaine
