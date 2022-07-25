@@ -15,9 +15,10 @@ QrCodeCreator vous permet de créez des QrCode sans difficulté il vous suffit j
 
 - Generation de QrCode a partir de texte
 - Generation de QrCode a partir de tableau Excel ou CSV
+- Fichier de configuration permettant de créer des QrCode a la chaine
 
 ### A Venir
 
 - GUI
 - Ajout de nouveau format (png, wifi, evenement, ect)
-- Fichier de configuration permettant de créer des QrCode a la chaine
+
