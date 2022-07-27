@@ -10,6 +10,7 @@ QrCodeCreator vous permet de créez des QrCode sans difficulté il vous suffit j
 2. pandas
 3. pillow
 4. xlrd
+5. openpyxl
 
 ### Features
 

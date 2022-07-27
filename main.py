@@ -11,6 +11,18 @@ BORDER = 4
 ERROR_CORRECTION = qrcode.constants.ERROR_CORRECT_L
 
 
+def get_error_correction_level(error_correction_level):
+    if error_correction_level == 'L':
+        return qrcode.constants.ERROR_CORRECT_L
+    elif error_correction_level == 'M':
+        return qrcode.constants.ERROR_CORRECT_M
+    elif error_correction_level == 'Q':
+        return qrcode.constants.ERROR_CORRECT_Q
+    elif error_correction_level == 'H':
+        return qrcode.constants.ERROR_CORRECT_H
+    else:
+        return qrcode.constants.ERROR_CORRECT_L
+
 def create_qr(text, filename):
     qr = qrcode.QRCode(
         version=VERSION,
@@ -30,15 +42,16 @@ def generateTable_qr(file, type, columnName, columnText, SheetName):
     if type == "xlsx":
         df = pd.read_excel(file, sheet_name=SheetName)
         for i in df.index:
+            print("Génération du QrCode " + "" + ": " + str(count) + " / " + str(len(df.index)))
             create_qr(df[columnText][i], df[columnName][i])
             count += 1
-            print("Génération du QrCode " + "" + ": " + str(count) + " / " + str(len(df.index)))
     elif type == "csv":
         df = pd.read_csv(file)
         for i in df.index:
+            print("Génération du QrCode " + "" + ": " + str(count) + " / " + str(len(df.index)))
             create_qr(df[columnText][i], df[columnName][i])
             count += 1
-            print("Génération du QrCode " + "" + ": " + str(count) + " / " + str(len(df.index)))
+
 
 
 if __name__ == '__main__':
@@ -78,6 +91,7 @@ if __name__ == '__main__':
         BORDER = str(config.get("border"))
         FILL_COLOR = config.get("fill-color")
         BACKGROUND_COLOR = config.get("background-color")
+        ERROR_CORRECTION = get_error_correction_level(config.get("error-correction"))
         if(config.get("mode") == "direct"):
             create_qr(config.get("text"), "result")
         if(config.get("mode") == "multiple"):
